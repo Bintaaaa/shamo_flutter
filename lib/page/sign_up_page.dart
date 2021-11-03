@@ -4,24 +4,27 @@ import 'package:shamo_flutter/theme/text_style.dart';
 import 'package:shamo_flutter/widget/item_button.dart';
 import 'package:shamo_flutter/widget/item_text_form_field.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({Key? key}) : super(key: key);
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Widget _header() {
       return Container(
-        margin: EdgeInsets.only(top: 6),
+        margin: EdgeInsets.only(top: 10,),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              "Login",
-              style:
-                  primaryTextStyle.copyWith(fontSize: 24, fontWeight: semiBold),
+              "Sign Up",
+              style: primaryTextStyle.copyWith(
+                fontSize: 24,
+                fontWeight: semiBold,
+              ),
             ),
             Text(
-              "Sign In to Continue",
+              "Register and Happy Shopping",
               style:
                   subtitleTextStyle.copyWith(fontSize: 16, fontWeight: light),
             )
@@ -30,13 +33,21 @@ class SignInPage extends StatelessWidget {
       );
     }
 
-    Widget _textField() {
+    Widget _textFormField() {
       return Container(
-        margin: EdgeInsets.only(top: 80),
+        margin: EdgeInsets.only(top: defaultMargin),
         child: Column(
-          children: [
+          children: const [
             ItemTextFormField(
-                title: "Email",
+                title: "Full Name",
+                iconUrl: "icon_name",
+                hintText: "Your Full Name"),
+            ItemTextFormField(
+                title: "Username",
+                iconUrl: "icon_username",
+                hintText: "Your Username"),
+            ItemTextFormField(
+                title: "Email Address",
                 iconUrl: "icon_email",
                 hintText: "Your Email Address"),
             ItemTextFormField(
@@ -50,8 +61,8 @@ class SignInPage extends StatelessWidget {
       );
     }
 
-    Widget _button() {
-      return ItemButton(title: "Sign In", onPressed: () {});
+    Widget _buttonSignUp(){
+      return ItemButton(title: "Sign Up", onPressed: (){});
     }
 
     Widget _footer() {
@@ -61,22 +72,22 @@ class SignInPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Don\'t have an account? ",
+              "Already have an account? ",
               style: subtitleTextStyle.copyWith(fontSize: 12),
             ),
             TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/sign-up');
+                Navigator.pushNamed(context, '/sign-in');
               },
               style: ButtonStyle(
 
                 //how to enable splash color textButton
-                overlayColor: MaterialStateColor.resolveWith((states) => Colors.transparent)
+                  overlayColor: MaterialStateColor.resolveWith((states) => Colors.transparent)
               ),
               child: Text(
-                "Sign Up",
+                "Sign In",
                 style:
-                    purpleTextStyle.copyWith(fontSize: 12, fontWeight: medium),
+                purpleTextStyle.copyWith(fontSize: 12, fontWeight: medium),
               ),
             )
           ],
@@ -86,13 +97,12 @@ class SignInPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: backgroundColor1,
-      resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(defaultMargin),
+        child: Container(
+          margin: EdgeInsets.all(defaultMargin),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [_header(), _textField(), _button(), Spacer(), _footer()],
+            children: [_header(), _textFormField(), _buttonSignUp(),Spacer(),_footer()],
           ),
         ),
       ),
