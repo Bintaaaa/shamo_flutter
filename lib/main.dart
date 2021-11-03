@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shamo_flutter/theme/text_style.dart';
+import 'package:shamo_flutter/page/sign_in_page.dart';
+import 'package:shamo_flutter/page/splash_screen_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text("halla", style: priceTextStyle.copyWith(
-            fontSize: 30
-          ),),
-        ),
-      ) ,
+      routes: {
+        '/': (context) =>  SplashScreenPage(),
+        '/sign-in': (context) =>  SignInPage(),
+      },
     );
   }
 }
