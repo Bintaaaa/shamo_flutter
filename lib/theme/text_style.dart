@@ -14,8 +14,18 @@ TextStyle priceTextStyle = GoogleFonts.poppins(
   color: priceColor
 );
 
+TextStyle subtitleTextStyle = GoogleFonts.poppins(
+  color: subtitleTextColor
+);
+TextStyle purpleTextStyle = GoogleFonts.poppins(
+    color: primaryColor
+);
+
+
 FontWeight light = FontWeight.w300;
 FontWeight regular = FontWeight.w400;
 FontWeight medium = FontWeight.w500;
 FontWeight semiBold = FontWeight.w600;
 FontWeight bold = FontWeight.w700;
+
+const double defaultMargin = 24;
