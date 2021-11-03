@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shamo_flutter/theme/text_style.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: Image.asset("assets/button_exit.png"),
+          child: Text("halla", style: priceTextStyle.copyWith(
+            fontSize: 30
+          ),),
         ),
       ) ,
     );
