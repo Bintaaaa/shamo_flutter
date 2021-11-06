@@ -50,8 +50,10 @@ class SignInPage extends StatelessWidget {
       );
     }
 
-    Widget _button() {
-      return ItemButton(title: "Sign In", onPressed: () {});
+    Widget _signUpButton() {
+      return ItemButton(title: "Sign In", onPressed: () {
+        Navigator.pushNamed(context, '/home');
+      });
     }
 
     Widget _footer() {
@@ -92,7 +94,7 @@ class SignInPage extends StatelessWidget {
           padding: EdgeInsets.all(defaultMargin),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [_header(), _textField(), _button(), Spacer(), _footer()],
+            children: [_header(), _textField(), _signUpButton(), Spacer(), _footer()],
           ),
         ),
       ),
