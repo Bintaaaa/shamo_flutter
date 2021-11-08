@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shamo_flutter/theme/color.dart';
 import 'package:shamo_flutter/theme/text_style.dart';
+import 'package:shamo_flutter/widget/item_arrvials.dart';
 import 'package:shamo_flutter/widget/item_category.dart';
 import 'package:shamo_flutter/widget/item_popular.dart';
 
@@ -114,12 +115,47 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget _titleNewArrivals() {
+      return Container(
+        margin: EdgeInsets.all(defaultMargin),
+        child: Text(
+          "New Arrivals",
+          style: primaryTextStyle.copyWith(
+            fontSize: 22,
+            fontWeight: semiBold,
+          ),
+        ),
+      );
+    }
+
+    Widget _newArrivals() {
+      return Column(
+        children: [
+          ItemArrvials(url: "image_shoes4.png", title: "Predator 20.3 Firm Ground", category: "Running", price: "69,77"),
+          ItemArrvials(url: "image_shoes5.png", title: "LEGO® SPORT SHOES", category: "Running", price:"88,87"),
+          ItemArrvials(url: "image_shoes6.png", title: "Predator 20.3 Firm Ground", category: "Running", price: "69,77"),
+          ItemArrvials(url: "image_shoes7.png", title: "Predator 20.3 Firm Ground", category: "Running", price: "69,77"),
+          ItemArrvials(url: "image_shoes8.png", title: "Ultra 4D 5 Shoes", category: "Running", price: "69,77"),
+        ],
+      );
+    }
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: backgroundColor1,
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [_header(), _category(), _titlePopular(), _listProduct()],
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _header(),
+              _category(),
+              _titlePopular(),
+              _listProduct(),
+              _titleNewArrivals(),
+              _newArrivals(),
+            ],
+          ),
         ),
       ),
     );

@@ -40,30 +40,32 @@ class ItemPopular extends StatelessWidget {
                 right: defaultMargin,
                 top: 8
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  category,
-                  style: secondaryTextStyle.copyWith(
-                    fontSize: 12,
+            child: Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    category,
+                    style: secondaryTextStyle.copyWith(
+                      fontSize: 12,
+                    ),
                   ),
-                ),
-                Text(
-                  title,
-                  style: blackTextStyle.copyWith(
-                    fontSize: 16,
-                    fontWeight: medium,
+                  Text(
+                    title,
+                    style: blackTextStyle.copyWith(
+                      fontSize: 16,
+                      fontWeight: semiBold,
+                    ),
                   ),
-                ),
-                Text(
-                  "\$$price",
-                  style: priceTextStyle.copyWith(
-                    fontSize: 14,
-                    fontWeight: semiBold,
-                  ),
-                )
-              ],
+                  Text(
+                    "\$$price",
+                    style: priceTextStyle.copyWith(
+                      fontSize: 14,
+                      fontWeight: semiBold,
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ],
